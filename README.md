@@ -31,7 +31,7 @@ This is how the help page looks by default!
 ### Options:
 #### -r, --run, run
 These are not fully completed yet and is there for testing purposes. The run parameters basically build the project and by either, using a cosmos project file [via cpf] or by using -ro parameters to know how to run the project.
-The RO parameter is right now only having one option, which is for QEMU, as it is by far the easiest one to setup, all it does is use (if installed), the qemu-system-x86_64 command to launch qemu with specified iso and 512 megabytes of RAM followed by a default qemu hard disk image file.
+The RO parameter is right now only having one option, which is for QEMU, as it is by far the easiest one to setup, all it does is use (if installed), the qemu-system-x86_64 command to launch qemu with specified iso and 512 megabytes of RAM followed by a default qemu hard disk image file. [PLEASE NOTE THAT THE RO PARAMETER HAS BEEN DISABLED FOR NOW, PLEASE USE RUN COMMAND IN YOUR BUILD FILE TO RUN BY UNCOMMENTING THE RUNCOMMAND PARAMETER AT THE END OF YOUR DEFAULT BUILD FILE]
 If the RO parameter is not specified then it tries to get the cpf file contents to check how to run, which includes a command called `runCommand` followed by the bash command to run the project, if neither of those are found, it builds the ISO, and throws a warning message that no run methods were found.
 #### -c, --create, create, new
 These check if the cosmos project template are installed and if yes then it goes ahead and creates a new cosmos C# kernel in current directory and makes a pre-generated file called the `CosmosBuildFile` containing default pre-generated commands, specifying build options and other variables.

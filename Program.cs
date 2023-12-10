@@ -10,22 +10,26 @@ namespace cosmos {
         public static bool success = true;
 
         public static void Main(string[] args) {
+            current.runCommand = "qemu-system-x86_64 -cdrom __ISO__ -m 512M";
+            args = args.Append<string>(" ").ToArray<string>();
             for (var i = 0; i < args.Length - 1; i++) {
                 var cArg = args[i];
-                var nArg = args[i + 1];
-                
+                var nArg = "BLANK";
+                if (args.Length > i + 1) {
+                    nArg = args[i + 1];
+                }
+
                 CosmosProjectFile.ReadCosmosProjectFile(SafeRead(buildFile));
                 switch (cArg.ToLower()) {
                     case "-cpf":
                     case "-cosmosprojectfile":
                         buildFile = nArg;
-                        CosmosProjectFile.ReadCosmosProjectFile(SafeRead(buildFile));
                         break;
                     case "-r":
                     case "--run":
                     case "run":
                         RunAndBuild.run();
-                        break;
+                        goto quit;
                     default:
                         success = false;
                         goto quit;

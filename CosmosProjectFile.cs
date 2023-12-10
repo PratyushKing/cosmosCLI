@@ -7,7 +7,9 @@ namespace cosmos {
             CosmosProjectConfig final = new();
             if (fileText == null) { Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("cosmos: Invalid File"); Console.ResetColor(); RUN.helpPage(); return; }
             var fLines = fileText.Split('\n');
+            var i = 0;
             foreach (var line in fLines) {
+                if (i == 0) { i = 1; continue; }
                 if (line == "") { continue; }
                 var variable = "";
                 var varVal = "";
@@ -20,7 +22,9 @@ namespace cosmos {
                 }
                 varVal = cWord.TrimStart(' ');
                 Console.ForegroundColor = ConsoleColor.Black;
-                Console.WriteLine(variable + ": " + varVal);
+                if (!variable.StartsWith("#")) {
+                    Console.WriteLine(variable + ": " + varVal);
+                }
                 if (variable == "cosmosProjectFile") {
                     final.csprojectPath = varVal;
                 } else if (variable == "cliBuildVersion") {
@@ -30,9 +34,24 @@ namespace cosmos {
                         Console.ResetColor();
                         System.Environment.Exit(1);
                     }
+                    final.versionMatches = true;
+                } else if (variable == "buildLocation") {
+                    final.isoPath = varVal;
+                } else if (variable == "buildISOName") {
+                    final.isoName = varVal;
+                } else if (variable == "runCommand") {
+                    final.runCommand = varVal;
+                } else if (variable.StartsWith("#")) {}
+                else {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("cosmos: Your CosmosBuildFile contains errors and has unsupported variables, please recheck your file!");
+                    Console.ResetColor();
+                    System.Environment.Exit(1);
                 }
                 Console.ResetColor();
             }
+            RUN.current = final;
+            return;
         }
     }
 }

@@ -30,10 +30,11 @@ That covers all the default options, if you want to see how a default build file
 [__PROJECT_NAME__]
 cosmosProjectFile = cosmos.csproj
 cliBuildVersion = alpha 0.1
-buildLocation = ISO/__ISO__
+buildLocation = ISO/
 buildISOName = __PROJECT_NAME__
-# runCommand = qemu-system-x86_64 __ISO__
+# runCommand = qemu-system-x86_64 -cdrom __ISO__ -m 512M
 ```
+Please note, that the `runCommand` can use the ISO parameter to get to ISO path and ISO, both.<br>
 This is what will be created with your new project via the create parameter in the CLI, difference being that the project name on the top instead being change to the name specified in the create parameter.
 
 [Return back to repository](../README.md)

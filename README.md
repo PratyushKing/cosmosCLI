@@ -40,4 +40,4 @@ This command is what sources in teh cosmos build file specified by the user, if 
 These are the most important parameters and the ones that you will probably use the most, these will simply either use `-cpf` or fetch the default CosmosBuildFile in your source directory to build using dotnet and will create an ISO file for you to use and you can specify where to put it by specifying `buildLocation` in your CPF file. (Check out the [CPF docs](./docs/CPF%20Docs.md) for that.)
 
 #### -ro [RUN OPTIONS]
-Please refer the [run parameter options](README.md/#r---run-run) to learn about the -ro parameter.
+Please refer the [run parameter options](#r---run-run) to learn about the -ro parameter.

@@ -20,7 +20,9 @@ namespace cosmos {
                 varVal = cWord.TrimStart(' ');
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine(variable + ": " + varVal);
-                if (variable == "cosmosProjectFile")
+                if (variable == "cosmosProjectFile") {
+                    
+                }
                 Console.ResetColor();
             }
         }

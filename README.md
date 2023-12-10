@@ -24,7 +24,7 @@ CosmosCLI, the unofficial way to use cosmos on linux, conveniently.
 
 ## How to use
 This is how the help page looks by default!
-![The default help page shown when the CLI is run.](images/helpPage.png)
+![The default help page shown when the CLI is run.](images/updatedHelpPage.png)
 
 ### Options:
 #### -r, --run, run

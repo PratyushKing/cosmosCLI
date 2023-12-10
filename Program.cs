@@ -32,9 +32,10 @@ namespace cosmos {
                                         "   -cpf, --cosmosProjectFile               This is a optional parameter for run and build, if not specified then\n" + 
                                         "                                           it specifies a custom cosmos CLI build file. [PRE-GENERATED WITH --create]\n" +
                                         "   -b, --build, build                      Build a project according to -cpf parameter.\n" +
-                                        "   -ro, --runOptions                       This is a optional parameter for run to specify how to run a specific project.\n" +
+                                        "   -ro, --runOptions                       This is a optional parameter for run to specify how to run a specific project. [EXPERIMENTAL]\n" +
                                         "   -h, --help                              To show this help page.\n" +
                                         "   -v, --version                           Version of CosmosCLI.\n" +
+                                        "   -ri, --reinstall                        Fetches cosmos to your user folder, and installs it for you! [EXPERIMENTAL]\n" +
                                         "\n" +
                               "Run Options:\n" +
                               "   cosmos -r -cpf [BUILD_FILE] -ro [RUN_OPTIONS] (-ro is optional if the CLI build file includes run method)\n" +

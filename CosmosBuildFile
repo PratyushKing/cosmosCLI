@@ -1,4 +1,6 @@
+[__PROJECT_NAME__]
 cosmosProjectFile = cosmos.csproj
 cliBuildVersion = alpha 0.1
-
+buildLocation = ISO/__ISO__
+buildISOName = __PROJECT_NAME__
 # runCommand = qemu-system-x86_64 __ISO__

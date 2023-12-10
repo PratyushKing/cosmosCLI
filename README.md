@@ -1,4 +1,5 @@
 # CosmosCLI
+CosmosCLI, the unofficial way to use cosmos on linux, conveniently.
 
 ## How to install
 ### Debian/Ubuntu or debian-based distributions
@@ -41,3 +42,7 @@ These are the most important parameters and the ones that you will probably use 
 
 #### -ro [RUN OPTIONS]
 Please refer the [run parameter options](#r---run-run) to learn about the -ro parameter.
+
+#### -h/--help and -v/--version
+The help parameter will obviously show the help page as shown in the image.
+The version parameter can help you however in your `CosmosBuildFile`, check more on that in the [CPF Docs](./docs/CPF%20Docs.md).

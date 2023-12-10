@@ -21,6 +21,7 @@ namespace cosmos {
                         return;
                 }
             }
+            helpPage();
         }
 
         public static void helpPage() {

@@ -1,0 +1,14 @@
+/home/pratyush/Documents/CosmosCLI/cosmos/bin/release/net7.0/cosmos
+/home/pratyush/Documents/CosmosCLI/cosmos/bin/release/net7.0/cosmos.deps.json
+/home/pratyush/Documents/CosmosCLI/cosmos/bin/release/net7.0/cosmos.runtimeconfig.json
+/home/pratyush/Documents/CosmosCLI/cosmos/bin/release/net7.0/cosmos.dll
+/home/pratyush/Documents/CosmosCLI/cosmos/bin/release/net7.0/cosmos.pdb
+/home/pratyush/Documents/CosmosCLI/cosmos/obj/release/net7.0/cosmos.GeneratedMSBuildEditorConfig.editorconfig
+/home/pratyush/Documents/CosmosCLI/cosmos/obj/release/net7.0/cosmos.AssemblyInfoInputs.cache
+/home/pratyush/Documents/CosmosCLI/cosmos/obj/release/net7.0/cosmos.AssemblyInfo.cs
+/home/pratyush/Documents/CosmosCLI/cosmos/obj/release/net7.0/cosmos.csproj.CoreCompileInputs.cache
+/home/pratyush/Documents/CosmosCLI/cosmos/obj/release/net7.0/cosmos.dll
+/home/pratyush/Documents/CosmosCLI/cosmos/obj/release/net7.0/refint/cosmos.dll
+/home/pratyush/Documents/CosmosCLI/cosmos/obj/release/net7.0/cosmos.pdb
+/home/pratyush/Documents/CosmosCLI/cosmos/obj/release/net7.0/cosmos.genruntimeconfig.cache
+/home/pratyush/Documents/CosmosCLI/cosmos/obj/release/net7.0/ref/cosmos.dll

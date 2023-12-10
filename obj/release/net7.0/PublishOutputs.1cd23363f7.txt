@@ -1,0 +1,5 @@
+/home/pratyush/Documents/CosmosCLI/cosmos/bin/release/net7.0/publish/cosmos
+/home/pratyush/Documents/CosmosCLI/cosmos/bin/release/net7.0/publish/cosmos.dll
+/home/pratyush/Documents/CosmosCLI/cosmos/bin/release/net7.0/publish/cosmos.deps.json
+/home/pratyush/Documents/CosmosCLI/cosmos/bin/release/net7.0/publish/cosmos.runtimeconfig.json
+/home/pratyush/Documents/CosmosCLI/cosmos/bin/release/net7.0/publish/cosmos.pdb

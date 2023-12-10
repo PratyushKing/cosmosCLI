@@ -4,7 +4,11 @@ namespace cosmos {
     public static class RunAndBuild {
         public static CosmosProjectConfig? toBuildConfig;
 
-        public static void run(string runMethod) {
+        public static void run() {
+            build();
+        }
+
+        public static void build() {
             
         }
     }

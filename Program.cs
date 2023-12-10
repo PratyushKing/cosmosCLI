@@ -5,6 +5,8 @@ namespace cosmos {
     public static class RUN {
 
         public const string version = "alpha 0.1";
+        public static string buildFile = "CosmosBuildFile";
+        public static bool success = true;
 
         public static void Main(string[] args) {
             for (var i = 0; i < args.Length - 1; i++) {
@@ -17,15 +19,17 @@ namespace cosmos {
                         CosmosProjectFile.ReadCosmosProjectFile(SafeRead(nArg));
                         break;
                     default:
-                        helpPage();
-                        return;
+                        success = false;
+                        goto quit;
                 }
             }
-            helpPage();
+            quit:
+            if (!success || args.Length < 1)
+                helpPage();
         }
 
         public static void helpPage() {
-            Console.WriteLine("cosmos: The unofficial Cosmos tool for Linux! Please read the github for detailed info [].");
+            Console.WriteLine("cosmos: The unofficial Cosmos tool for Linux! Please read the github for detailed info [https://github.com/PratyushKing/cosmosCLI].");
             Console.WriteLine("Usage:\n  cosmos [OPTIONS]\n");
             Console.WriteLine("Options:\n   -r, --run, run                          Run a project according to -cpf and -ro parameters.\n" +
                                         "   -c, --create, create, new               Create new C# Cosmos Kernel.\n" +

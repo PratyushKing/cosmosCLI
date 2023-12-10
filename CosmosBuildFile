@@ -1,0 +1,4 @@
+cosmosProjectFile = cosmos.csproj
+cliBuildVersion = alpha 0.1
+
+# runCommand = qemu-system-x86_64 __ISO__

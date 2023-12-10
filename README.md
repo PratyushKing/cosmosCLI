@@ -12,15 +12,17 @@ CosmosCLI, the unofficial way to use cosmos on linux, conveniently.
 - Use `sudo rpm -i <rpm_pkg>` to install it on your device.
 - Done. Use `cosmos` in your terminal to access the tool, If it doesn't work, open a new issue in this repository.
 
-### Other distributions
-#### Arch or Arch-based distributions
+### Arch or Arch-based distributions
 - You can follow steps to install Debtap on your arch via an AUR helper like `yay` to convert deb into an arch suitable package (generally a specific .pkg.tar.zst file).
 - After using debtap to convert your deb into arch suitable package (`debtap <file.deb>`), you can do `sudo pacman -U <your-generated-file>`
 
-#### Uncommon distributions (Gentoo, Slackware, etc.)
-- These generally do have workarounds to get deb/rpm packages working, but if not, you can git clone the repository and then using dotnet (which should be available), you can manually build it yourself.
+### Uncommon distributions (Gentoo, Slackware, etc.)
+- These generally do have workarounds to get deb/rpm packages working, but if not, you can git clone the repository and then if dotnet's installed, just do ./prepare-executable.sh and it will automatically build and place the executable in the source directory, from there, you can copy executable to the bin folder and add it to your path.
 - After proceeding to build, you can copy the final executable and put it in your environment path or alternatively paste it into your `bin` directory.
 - Generally, because you are building it yourself, it is told to yourself clone the Cosmos repository and use the `make` command to build cosmos itself. The above method told, will only install the CLI which does have a cosmos install option but it's preferred to do manually.
+
+## Post-Install
+Generally, cosmos will not come with the package installer, instead you have to run `cosmos -ri` which means reinstall, that will not really reinstall your cosmos CLI but will "reinstall" cosmos itself, its named reinstall but it will do a fresh, clean install, the only requirements is having a stable-internet connection (becuase it takes a while) and having dotnet and nuget both installed, for which you can get through internet.
 
 ## How to use
 This is how the help page looks by default!

@@ -5,10 +5,15 @@ namespace cosmos {
         public static CosmosProjectConfig? toBuildConfig;
 
         public static void run() {
+            checkVersion();
             build();
         }
 
         public static void build() {
+            checkVersion();
+        }
+
+        public static void checkVersion() {
             
         }
     }

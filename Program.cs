@@ -6,6 +6,7 @@ namespace cosmos {
 
         public const string version = "alpha 0.1";
         public static string buildFile = "CosmosBuildFile";
+        public static CosmosProjectConfig current = new();
         public static bool success = true;
 
         public static void Main(string[] args) {
@@ -13,10 +14,17 @@ namespace cosmos {
                 var cArg = args[i];
                 var nArg = args[i + 1];
                 
+                CosmosProjectFile.ReadCosmosProjectFile(SafeRead(buildFile));
                 switch (cArg.ToLower()) {
                     case "-cpf":
                     case "-cosmosprojectfile":
-                        CosmosProjectFile.ReadCosmosProjectFile(SafeRead(nArg));
+                        buildFile = nArg;
+                        CosmosProjectFile.ReadCosmosProjectFile(SafeRead(buildFile));
+                        break;
+                    case "-r":
+                    case "--run":
+                    case "run":
+                        RunAndBuild.run();
                         break;
                     default:
                         success = false;

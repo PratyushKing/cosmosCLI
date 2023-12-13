@@ -26,7 +26,8 @@ Generally, cosmos will not come with the package installer, instead you have to 
 
 ## How to use
 This is how the help page looks by default!
-![The default help page shown when the CLI is run.](images/updatedHelpPage.png)
+![The default help page shown when the CLI is run.](https://github.com/PratyushKing/cosmosCLI/assets/83279568/dbf9ec3b-6a45-4e3e-99aa-b823095f352b)
+
 
 ### Options:
 #### -r, --run, run

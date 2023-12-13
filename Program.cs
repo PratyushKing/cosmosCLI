@@ -8,9 +8,16 @@ namespace cosmos {
         public static string buildFile = "CosmosBuildFile";
         public static CosmosProjectConfig current = new();
         public static bool success = true;
+        
+        public const string DefaultBuildFileContents = "[__PROJECT_NAME__]\r\ncosmosProjectFile = cosmos.csproj\r\ncliBuildVersion = alpha 0.1\r\nbuildLocation = ISO/\r\nbuildISOName = __PROJECT_NAME__\r\nrunCommand = qemu-system-x86_64 -cdrom __ISO__ -m 512M";
 
         public static void Main(string[] args) {
             current.runCommand = "qemu-system-x86_64 -cdrom __ISO__ -m 512M";
+            if (args.Length <= 0) {
+                Console.WriteLine("No commands specified.");
+                helpPage();
+                return;
+            }
             args = args.Append<string>(" ").ToArray<string>();
             for (var i = 0; i < args.Length - 1; i++) {
                 var cArg = args[i];
@@ -18,18 +25,41 @@ namespace cosmos {
                 if (args.Length > i + 1) {
                     nArg = args[i + 1];
                 }
-
-                CosmosProjectFile.ReadCosmosProjectFile(SafeRead(buildFile));
                 switch (cArg.ToLower()) {
                     case "-cpf":
                     case "-cosmosprojectfile":
+                        CosmosProjectFile.ReadCosmosProjectFile(SafeRead(buildFile));
                         buildFile = nArg;
                         break;
                     case "-r":
                     case "--run":
                     case "run":
+                        CosmosProjectFile.ReadCosmosProjectFile(SafeRead(buildFile));
                         RunAndBuild.run();
                         goto quit;
+                    case "-h":
+                    case "--help":
+                    case "help":
+                        helpPage();
+                        return;
+                    case "-v":
+                    case "--version":
+                    case "version":
+                        Console.WriteLine("CosmosCLI " + version);
+                        return;
+                    case "-c":
+                    case "--create":
+                    case "create":
+                    case "new":
+                        Console.WriteLine("Creating Cosmos C# Kernel.");
+                        if (nArg == "") {
+                            success = false;
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("No name specified,\nUsage: cosmos " + cArg + " <yourProjectName>");
+                            goto quit;
+                        }
+                        createProject.createNewProject(nArg);
+                        return;
                     default:
                         success = false;
                         goto quit;
@@ -49,8 +79,8 @@ namespace cosmos {
                                         "                                           it specifies a custom cosmos CLI build file. [PRE-GENERATED WITH --create]\n" +
                                         "   -b, --build, build                      Build a project according to -cpf parameter.\n" +
                                         "   -ro, --runOptions                       This is a optional parameter for run to specify how to run a specific project. [EXPERIMENTAL]\n" +
-                                        "   -h, --help                              To show this help page.\n" +
-                                        "   -v, --version                           Version of CosmosCLI.\n" +
+                                        "   -h, --help, help                        To show this help page.\n" +
+                                        "   -v, --version, version                  Version of CosmosCLI.\n" +
                                         "   -ri, --reinstall                        Fetches cosmos to your user folder, and installs it for you! [EXPERIMENTAL]\n" +
                                         "\n" +
                               "Run Options:\n" +

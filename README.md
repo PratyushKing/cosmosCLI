@@ -34,10 +34,10 @@ These are not fully completed yet and is there for testing purposes. The run par
 The RO parameter is right now only having one option, which is for QEMU, as it is by far the easiest one to setup, all it does is use (if installed), the qemu-system-x86_64 command to launch qemu with specified iso and 512 megabytes of RAM followed by a default qemu hard disk image file. [PLEASE NOTE THAT THE RO PARAMETER HAS BEEN DISABLED FOR NOW, PLEASE USE RUN COMMAND IN YOUR BUILD FILE TO RUN BY UNCOMMENTING THE RUNCOMMAND PARAMETER AT THE END OF YOUR DEFAULT BUILD FILE]
 If the RO parameter is not specified then it tries to get the cpf file contents to check how to run, which includes a command called `runCommand` followed by the bash command to run the project, if neither of those are found, it builds the ISO, and throws a warning message that no run methods were found.
 #### -c, --create, create, new
-These check if the cosmos project template are installed and if yes then it goes ahead and creates a new cosmos C# kernel in current directory and makes a pre-generated file called the `CosmosBuildFile` containing default pre-generated commands, specifying build options and other variables.
+These check if the cosmos project template are installed and if yes then it goes ahead and creates a new cosmos C# kernel in current directory and makes a pre-generated file called the `CosmosBuildFile` containing default pre-generated commands, specifying build options and other variables. To learn how to use it goto [create project help](docs/Create%20Project.md)
 
 #### -cpf, --cosmosProjectFile
-This command is what sources in teh cosmos build file specified by the user, if this is not specified then the default is set to `CosmosBuildFile` from the source directory, which must be there, if not your project will fail to build, you can check cosmos build file's syntax to add to your existing projects by checking the [CPF Docs](./docs/CPF%20Docs.md)
+This command is what sources in the cosmos build file specified by the user, if this is not specified then the default is set to `CosmosBuildFile` from the source directory, which must be there, if not your project will fail to build, you can check cosmos build file's syntax to add to your existing projects by checking the [CPF Docs](./docs/CPF%20Docs.md)
 
 #### -b, --build, build
 These are the most important parameters and the ones that you will probably use the most, these will simply either use `-cpf` or fetch the default CosmosBuildFile in your source directory to build using dotnet and will create an ISO file for you to use and you can specify where to put it by specifying `buildLocation` in your CPF file. (Check out the [CPF docs](./docs/CPF%20Docs.md) for that.)
@@ -45,6 +45,6 @@ These are the most important parameters and the ones that you will probably use 
 #### -ro [RUN OPTIONS]
 Please refer the [run parameter options](#r---run-run) to learn about the -ro parameter.
 
-#### -h/--help and -v/--version
+#### -h/--help/help and -v/--version/version
 The help parameter will obviously show the help page as shown in the image.
 The version parameter can help you however in your `CosmosBuildFile`, check more on that in the [CPF Docs](./docs/CPF%20Docs.md).

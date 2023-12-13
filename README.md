@@ -13,8 +13,9 @@ CosmosCLI, the unofficial way to use cosmos on linux, conveniently.
 - Done. Use `cosmos` in your terminal to access the tool, If it doesn't work, open a new issue in this repository.
 
 ### Arch or Arch-based distributions
-- You can follow steps to install Debtap on your arch via an AUR helper like `yay` to convert deb into an arch suitable package (generally a specific .pkg.tar.zst file).
-- After using debtap to convert your deb into arch suitable package (`debtap <file.deb>`), you can do `sudo pacman -U <your-generated-file>`
+- You can download the `.pkg.tar.zst` (the packaging format for Arch) file from the latest release in this repository.
+- Then, to install just do `sudo pacman -U cosmos.pkg.tar.zst` to install it, and then it should work.
+<br>(ARCH PACKAGE IS LEAST TESTED, PLEASE TEST IT AND SUBMIT YOUR REPORTS IF POSSIBLE AT DISCORD "pratyushking")
 
 ### Uncommon distributions (Gentoo, Slackware, etc.)
 - These generally do have workarounds to get deb/rpm packages working, but if not, you can git clone the repository and then if dotnet's installed, just do ./prepare-executable.sh and it will automatically build and place the executable in the source directory, from there, you can copy executable to the bin folder and add it to your path.

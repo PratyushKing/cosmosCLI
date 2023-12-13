@@ -1,15 +1,16 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Reflection.Metadata.Ecma335;
 
 namespace cosmos {
     public static class RUN {
 
-        public const string version = "alpha 0.1";
+        public const string version = "v1.0";
         public static string buildFile = "CosmosBuildFile";
         public static CosmosProjectConfig current = new();
         public static bool success = true;
         
-        public const string DefaultBuildFileContents = "[__PROJECT_NAME__]\r\ncosmosProjectFile = cosmos.csproj\r\ncliBuildVersion = alpha 0.1\r\nbuildLocation = ISO/\r\nbuildISOName = __PROJECT_NAME__\r\nrunCommand = qemu-system-x86_64 -cdrom __ISO__ -m 512M";
+        public const string DefaultBuildFileContents = "[__PROJECT_NAME__]\r\ncosmosProjectFile = __PROJECT_NAME__.csproj\r\ncliBuildVersion = " + version + "\r\nbuildLocation = ISO/\r\nbuildISOName = __PROJECT_NAME__\r\nrunCommand = qemu-system-x86_64 -cdrom __ISO__ -m 512M";
 
         public static void Main(string[] args) {
             current.runCommand = "qemu-system-x86_64 -cdrom __ISO__ -m 512M";
@@ -37,6 +38,12 @@ namespace cosmos {
                         CosmosProjectFile.ReadCosmosProjectFile(SafeRead(buildFile));
                         RunAndBuild.run();
                         goto quit;
+                    case "-b":
+                    case "--build":
+                    case "build":
+                        CosmosProjectFile.ReadCosmosProjectFile(SafeRead(buildFile));
+                        RunAndBuild.build();
+                        goto quit;
                     case "-h":
                     case "--help":
                     case "help":
@@ -59,6 +66,22 @@ namespace cosmos {
                             goto quit;
                         }
                         createProject.createNewProject(nArg);
+                        return;
+                    case "-ro":
+                        if (nArg == " ") {
+                            success = false;
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("No option specified (example: -q/--qemu)");
+                            goto quit;
+                        }
+                        if (nArg == "-q" || nArg == "--qemu") {
+                            current.runCommand = "qemu-system-x86_64 -cdrom __ISO__ -m 512M";
+                        }
+                        continue;
+                    case "-ri":
+                        Console.WriteLine("WARNING: Please make sure that you have git, make, xorriso, yasm, dotnet and nuget properly installed before proceeding, or it will fail.\n Press Enter to continue.");
+                        Console.ReadLine();
+                        Process.Start("/bin/bash", "-c \"cd ~ && mkdir CosmosFiles && cd ~/CosmosFiles && git clone https://github.com/CosmosOS/Cosmos && cd ~/CosmosFiles/Cosmos && make && echo FINISHED\"");
                         return;
                     default:
                         success = false;

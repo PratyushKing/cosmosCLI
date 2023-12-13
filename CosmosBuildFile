@@ -1,5 +1,5 @@
 [__PROJECT_NAME__]
-cosmosProjectFile = cosmos.csproj
+cosmosProjectFile = __PROJECT_NAME__.csproj
 cliBuildVersion = alpha 0.1
 buildLocation = ISO/
 buildISOName = __PROJECT_NAME__

@@ -32,7 +32,9 @@ namespace cosmos {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("cosmos: The version of cosmosCLI installed on this machine (" + RUN.version + ") is not matching with what the project is made with/using (" + varVal + ")");
                         Console.ResetColor();
-                        System.Environment.Exit(1);
+                        Console.WriteLine("Do you still want to proceed? (Enter to continue, else exit)");
+                        var key = Console.ReadKey();
+                        if (!(key.Key == ConsoleKey.Enter)) { System.Environment.Exit(1); }
                     }
                     final.versionMatches = true;
                 } else if (variable == "buildLocation") {

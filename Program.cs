@@ -9,8 +9,9 @@ namespace cosmos {
         public static string buildFile = "CosmosBuildFile";
         public static CosmosProjectConfig current = new();
         public static bool success = true;
+        public static bool verbose = false;
         
-        public const string DefaultBuildFileContents = "[__PROJECT_NAME__]\r\ncosmosProjectFile = __PROJECT_NAME__.csproj\r\ncliBuildVersion = " + version + "\r\nbuildLocation = ISO/\r\nbuildISOName = __PROJECT_NAME__\r\nrunCommand = qemu-system-x86_64 -cdrom __ISO__ -m 512M";
+        public const string DefaultBuildFileContents = "[__PROJECT_NAME__]\ncosmosProjectFile = __PROJECT_NAME__.csproj\ncliBuildVersion = " + version + "\nbuildLocation = ISO/\nbuildISOName = __PROJECT_NAME__\nrunCommand = qemu-system-x86_64 -cdrom __ISO__ -m 512M";
 
         public static void Main(string[] args) {
             current.runCommand = "qemu-system-x86_64 -cdrom __ISO__ -m 512M";
@@ -54,6 +55,9 @@ namespace cosmos {
                     case "version":
                         Console.WriteLine("CosmosCLI " + version);
                         return;
+                    case "--verbose":
+                        verbose = true;
+                        continue;
                     case "-c":
                     case "--create":
                     case "create":
@@ -81,7 +85,8 @@ namespace cosmos {
                     case "-ri":
                         Console.WriteLine("WARNING: Please make sure that you have git, make, xorriso, yasm, dotnet and nuget properly installed before proceeding, or it will fail.\n Press Enter to continue.");
                         Console.ReadLine();
-                        Process.Start("/bin/bash", "-c \"cd ~ && mkdir CosmosFiles && cd ~/CosmosFiles && git clone https://github.com/CosmosOS/Cosmos && cd ~/CosmosFiles/Cosmos && make && echo FINISHED\"");
+                        var p = Process.Start("/bin/bash", "-c \"cd ~ && mkdir CosmosFiles && cd ~/CosmosFiles && git clone https://github.com/CosmosOS/Cosmos && cd ~/CosmosFiles/Cosmos && make && echo FINISHED\"");
+                        p.WaitForExit();
                         return;
                     default:
                         success = false;

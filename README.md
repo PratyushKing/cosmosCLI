@@ -1,6 +1,9 @@
 # CosmosCLI
 CosmosCLI, the unofficial way to use cosmos on linux, conveniently.
-
+<br>
+<img src="https://img.shields.io/github/license/PratyushKing/cosmosCLI" />
+<img src="https://img.shields.io/github/downloads/PratyushKing/cosmosCLI/total" />
+<br>
 ## How to install
 ### Debian/Ubuntu or debian-based distributions
 - Get the newest deb package from the Releases tab and download it.

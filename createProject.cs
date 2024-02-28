@@ -7,6 +7,7 @@ namespace cosmos {
         public static void createNewProject(string name) {
             RunBash("mkdir " + name + " && cd " + name + " &&" + "dotnet new cosmosCSKernel -n " + name);
             File.WriteAllText(name + "/CosmosBuildFile", RUN.DefaultBuildFileContents.Replace("__PROJECT_NAME__", name));
+            File.WriteAllText(name + "/Kernel.cs", File.ReadAllText(name + "/Kernel.cs").Replace("$safeprojectname$", name));
         }
 
         public static void RunBash(string command) {

@@ -5,7 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 namespace cosmos {
     public static class RUN {
 
-        public const string version = "v1.1";
+        public const string version = "v1.2";
         public static string buildFile = "CosmosBuildFile";
         public static CosmosProjectConfig current = new();
         public static bool success = true;

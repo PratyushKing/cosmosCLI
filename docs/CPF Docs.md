@@ -22,6 +22,9 @@ This is another crucial variable that is mandatory to be used in a build file, t
 - BuildISOName:<br>
 This is optional mainly, it will like the name suggests, name the ISO according to what you want after copying the ISO to `buildLocation`, this ISO name will by default be the project name so while mentioning it is mandatory, you can ofcourse specify as `__PROJECT_NAME__` and that being a pre-defined variable inside the code, will be replaced with your project name.
 
+- RunProfile:<br>
+This is a revolutionary recent addition, that is made possible due to VMWare. CosmosCLI no longer depends on QEMU and can work on VMWare. You can install the latest VMWare bundle for linux. Install it and set the RunProfile for your existing projects. The run profile as a format comes right before the RunCommand which is no longer mandatory for default projects and now an optional paramater. Please install VMWare and the add runProfile or create a new project and it will include a brand new updated default `CosmosBuildFile` that will now perfectly work with VMWare and allows Cosmos on Linux to be finally functional.
+
 - RunCommand:<br>
 This is an experimental feature, mainly used with the run parameter, this removes the need of run options as specified in the main README, you may use this to specify your run command, rather than using preset values with the run options, one use case can be if you want to use other architecture versions of QEMU, than the default x86_64 thats there with the run options, you can use specify that in run command, by default the run command in all new projects is commented out (like in bash with the `#` symbol) because it's experimental and not really there yet, so it's all coming soon. As of right now, its entirely for QEMU or other emulators and is no longer the default option like it used to be.
 

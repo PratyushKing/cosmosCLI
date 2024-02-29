@@ -4,6 +4,13 @@ CosmosCLI, the unofficial way to use cosmos on linux, conveniently.
 <img src="https://img.shields.io/github/license/PratyushKing/cosmosCLI" />
 <img src="https://img.shields.io/github/downloads/PratyushKing/cosmosCLI/total" />
 <br>
+
+## Latest Changes that are in process:
+- Fixes cosmos new project Kernel.cs file name error. (that was somehow not fixed in cosmos itself)
+- Adds a `runProfile` option to the `CosmosBuildFile`
+- Makes `runCommand` optional and only for QEMU
+- VMWare now being added to `runProfile` than only being QEMU.
+
 ## How to install
 ### Debian/Ubuntu or debian-based distributions
 - Get the newest deb package from the Releases tab and download it.

@@ -11,7 +11,7 @@ namespace cosmos {
         public static bool success = true;
         public static bool verbose = false;
         
-        public const string DefaultBuildFileContents = "[__PROJECT_NAME__]\ncosmosProjectFile = __PROJECT_NAME__.csproj\ncliBuildVersion = " + version + "\nbuildLocation = ISO/\nbuildISOName = __PROJECT_NAME__\nrunCommand = qemu-system-x86_64 -cdrom __ISO__ -m 512M";
+        public const string DefaultBuildFileContents = "[__PROJECT_NAME__]\ncosmosProjectFile = __PROJECT_NAME__.csproj\ncliBuildVersion = " + version + "\nbuildLocation = ISO/\nbuildISOName = __PROJECT_NAME__\nrunProfile = VMWare\nrunCommand = qemu-system-x86_64 -cdrom __ISO__ -m 512M";
 
         public static void Main(string[] args) {
             current.runCommand = "qemu-system-x86_64 -cdrom __ISO__ -m 512M";

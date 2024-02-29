@@ -5,6 +5,9 @@ CosmosCLI, the unofficial way to use cosmos on linux, conveniently.
 <img src="https://img.shields.io/github/downloads/PratyushKing/cosmosCLI/total" />
 <br>
 
+### Note for old projects made with CosmosCLI:
+When you update or install a new version of CosmosCLI and you want to update your project with the latest default CosmosBuildFile. You can get the latest default file from /etc/CosmosCLI/skel and the skel is basically meaning skeleton for the newest CosmosBuildFile.
+
 ## Latest Changes that are in process:
 - Fixes cosmos new project Kernel.cs file name error. (that was somehow not fixed in cosmos itself)
 - Adds a `runProfile` option to the `CosmosBuildFile`

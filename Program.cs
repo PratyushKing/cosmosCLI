@@ -5,7 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 namespace cosmos {
     public static class RUN {
 
-        public const string version = "v1.2";
+        public const string version = "v1.1";
         public static string buildFile = "CosmosBuildFile";
         public static CosmosProjectConfig current = new();
         public static bool success = true;
@@ -111,11 +111,7 @@ namespace cosmos {
                                         "   -v, --version, version                  Version of CosmosCLI.\n" +
                                         "   -ri, --reinstall                        Fetches cosmos to your user folder, and installs it for you! [EXPERIMENTAL]\n" +
                                         "\n" +
-                              "Run Options:\n" +
-                              "   cosmos -r -cpf [BUILD_FILE] -ro [RUN_OPTIONS] (-ro is optional if the CLI build file includes run method)\n" +
-                                        "   -ro Options:\n" +
-                                        "      -q, --qemu                           Runs project with Qemu x86_64 with a default hda file.\n" +
-                                        "    [MORE OPTIONS COMING SOON]\n" +
+                              "Run Options is now in the CosmosBuildFile and add a `run profile` parameter to make it work. For more info, read the docs on the github page." +
                               "\n");
         }
 

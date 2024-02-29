@@ -1,6 +1,7 @@
 [__PROJECT_NAME__]
 cosmosProjectFile = __PROJECT_NAME__.csproj
-cliBuildVersion = alpha 0.2
+cliBuildVersion = v1.3
 buildLocation = ISO/
 buildISOName = __PROJECT_NAME__
-runCommand = qemu-system-x86_64 -cdrom __ISO__ -m 512M
+runProfile = VMWare
+//runCommand = qemu-system-x86_64 -cdrom __ISO__ -m 512M

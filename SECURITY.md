@@ -4,7 +4,7 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| v1.0    | :white_check_mark: |
+| v1.0    | Old projects only. |
 | v1.2    | :white_check_mark: |
 
 ## Reporting a Vulnerability

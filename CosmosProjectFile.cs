@@ -43,6 +43,8 @@ namespace cosmos {
                     final.isoName = varVal;
                 } else if (variable == "runCommand") {
                     final.runCommand = varVal;
+                } else if (variable == "runProfile") {
+                    final.runProfile = varVal;
                 } else if (variable.StartsWith("#")) {}
                 else {
                     Console.ForegroundColor = ConsoleColor.Red;

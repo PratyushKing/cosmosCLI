@@ -36,7 +36,8 @@ namespace cosmos {
         public string isoPath;
         public string isoName;
         public string runCommand;
+        public string runProfile;
 
-        public CosmosProjectConfig(string csProjectPath, bool versionMatching, string isoP, string isoname, string rCommand) { runCommand = rCommand; isoName = isoname; isoPath = isoP; csprojectPath = csProjectPath; versionMatches = versionMatching; }
+        public CosmosProjectConfig(string csProjectPath, bool versionMatching, string isoP, string isoname, string rCommand, string rProfile) { runCommand = rCommand; isoName = isoname; isoPath = isoP; csprojectPath = csProjectPath; versionMatches = versionMatching; runProfile = rProfile; }
     }
 }

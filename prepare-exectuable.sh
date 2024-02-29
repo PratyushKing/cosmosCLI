@@ -5,4 +5,4 @@
 # cp bin/Release/net7.0/linux-x64/publish/cosmos .
 # echo "Executable sent to base source directory!"
 
-echo "Please use make exe instead of this command."
+make exe

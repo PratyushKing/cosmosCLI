@@ -6,8 +6,15 @@ namespace cosmos {
 
         public static void run() {
             build();
-            RUN.current.runCommand = RUN.current.runCommand.Replace("__ISO__", RUN.current.isoPath + RUN.current.csprojectPath.Replace(".csproj", ".iso"));
-            RunCommandWithBash(RUN.current.runCommand.Split(' ')[0], RUN.current.runCommand.TrimStart(RUN.current.runCommand.Split(' ')[0].ToCharArray()));
+            if (RUN.current.runProfile == "QEMU") {
+                RUN.current.runCommand = RUN.current.runCommand.Replace("__ISO__", RUN.current.isoPath + RUN.current.csprojectPath.Replace(".csproj", ".iso"));
+                RunCommandWithBash(RUN.current.runCommand.Split(' ')[0], RUN.current.runCommand.TrimStart(RUN.current.runCommand.Split(' ')[0].ToCharArray()));
+            }
+
+            if (RUN.current.runProfile.ToLower() == "vmware") {
+                RunCommandWithBash("/usr/bin/cp", RUN.current.isoPath + "/" + RUN.current.isoName + ".iso" + " /etc/CosmosCLI/VMWARE/currentiso.iso");
+                RunCommandWithBash("/usr/bin/vmplayer", "/etc/CosmosCLI/VMWARE/Cosmos.vmx");
+            }
         }
 
         public static void build() {
@@ -20,7 +27,20 @@ namespace cosmos {
         {
             ProcessStartInfo psi = new()
             {
-                FileName = "/bin/" + command,
+                FileName = "/usr/bin/bash",
+                Arguments = "-c \"" + command + " " + args + "\"",
+                UseShellExecute = false
+            };
+
+            using var p = Process.Start(psi);
+            p.WaitForExit();
+        }
+
+        public static void DirectRun(string command, string args)
+        {
+            ProcessStartInfo psi = new()
+            {
+                FileName = command,
                 Arguments = args,
                 UseShellExecute = false
             };

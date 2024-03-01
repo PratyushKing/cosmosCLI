@@ -37,6 +37,7 @@ When you update or install a new version of CosmosCLI and you want to update you
 - PLEASE NOTE: AS OF THE LATEST VERSION OF COSMOSCLI YOU ARE NO LONGER ALLOWED TO USE THIS METHOD AND IF YOU DO YOU MUST CLONE THE COSMOS GITHUB REPO GOTO THE `Build/VMWare/Workstation/` FOLDER, GET THE `Cosmos.nvram` FILE WITH THE `Filesystem.vmdk` FILE AND COPY IT TO THE `/etc/CosmosCLI/` DIRECTORY WITH THEIR RESPECTIVE NAMES. IF YOU DON'T DO SO, RUNNING VIA VMWARE WON'T WORK! ALSO YOU MUST PUT THE CUSTOM VMWARE FILES IN YOUR `/etc/CosmosCLI/` DIRECTORY FOR IT TO WORK. THE FOLDER MUST BE NAMED `VMWARE` AND IT MUST CONTAIN THE FILES GIVEN [HERE](./RequiredFiles/).
 
 ## Post-Install
+You are required to run `sudo cosmos --setup` after install or it just will not work. It's done so VMWare's files stored in `/etc/CosmosCLI` are changed permissions for the user because package managers install it as root. Please also try to avoid logging as root and doing it because that won't work either. The main way the `--setup` works is that it gets your login name. So please be aware of that.
 Generally, cosmos will not come with the package installer, instead you have to run `cosmos -ri` which means reinstall, that will not really reinstall your cosmos CLI but will "reinstall" cosmos itself, its named reinstall but it will do a fresh, clean install, the only requirements is having a stable-internet connection (becuase it takes a while) and having dotnet and nuget both installed, for which you can get through internet.
 
 ## How to use

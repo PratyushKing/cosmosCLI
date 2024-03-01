@@ -1,23 +1,51 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices;
 
 namespace cosmos {
     public static class RUN {
 
-        public const string version = "v1.2";
+        public const string version = "v1.3";
         public static string buildFile = "CosmosBuildFile";
         public static CosmosProjectConfig current = new();
         public static bool success = true;
         public static bool verbose = false;
         
-        public const string DefaultBuildFileContents = "[__PROJECT_NAME__]\ncosmosProjectFile = __PROJECT_NAME__.csproj\ncliBuildVersion = " + version + "\nbuildLocation = ISO/\nbuildISOName = __PROJECT_NAME__\nrunProfile = VMWare\nrunCommand = qemu-system-x86_64 -cdrom __ISO__ -m 512M";
+        public const string DefaultBuildFileContents = "[__PROJECT_NAME__]\ncosmosProjectFile = __PROJECT_NAME__.csproj\ncliBuildVersion = " + version + "\nbuildLocation = ISO/\nbuildISOName = __PROJECT_NAME__\nrunProfile = VMWare";
 
         public static void Main(string[] args) {
             current.runCommand = "qemu-system-x86_64 -cdrom __ISO__ -m 512M";
             if (args.Length <= 0) {
                 Console.WriteLine("No commands specified.");
                 helpPage();
+                return;
+            }
+            if (args[0] == "--setup") {
+                Console.WriteLine("Setting up!");
+                if (isRoot()) {
+                    RunAndBuild.RunCommandWithBash("/usr/bin/echo", "Adding permissions for $(logname).");
+                    RunAndBuild.RunCommandWithBash("/usr/bin/chown", "$(logname):$(logname) /etc/CosmosCLI/");
+                    RunAndBuild.RunCommandWithBash("/usr/bin/chown", "$(logname):$(logname) /etc/CosmosCLI/skel");
+                    RunAndBuild.RunCommandWithBash("/usr/bin/chown", "$(logname):$(logname) /etc/CosmosCLI/VMWARE/");
+                    RunAndBuild.RunCommandWithBash("/usr/bin/chown", "$(logname):$(logname) /etc/CosmosCLI/VMWARE/Cosmos.nvram");
+                    RunAndBuild.RunCommandWithBash("/usr/bin/chown", "$(logname):$(logname) /etc/CosmosCLI/VMWARE/Cosmos.vmx");
+                    RunAndBuild.RunCommandWithBash("/usr/bin/chown", "$(logname):$(logname) /etc/CosmosCLI/VMWARE/currentiso.iso");
+                    RunAndBuild.RunCommandWithBash("/usr/bin/chown", "$(logname):$(logname) /etc/CosmosCLI/VMWARE/Filesystem.vmdk");
+                    File.Create("/etc/CosmosCLI/instdone");
+                    Console.WriteLine("FINISHED!");
+                    return;
+                } else {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("ERROR: `cosmos --setup` must run as root. Please use `sudo cosmos --setup`.\n(PLEASE AVOID USING ROOT USER ITSELF)");
+                    Console.ResetColor();
+                    Environment.Exit(-1);
+                }
+            }
+            if (!File.Exists("/etc/CosmosCLI/instdone")) {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Please use `cosmos --setup` after install is finished.");
+                Console.ResetColor();
                 return;
             }
             args = args.Append<string>(" ").ToArray<string>();
@@ -110,6 +138,7 @@ namespace cosmos {
                                         "   -h, --help, help                        To show this help page.\n" +
                                         "   -v, --version, version                  Version of CosmosCLI.\n" +
                                         "   -ri, --reinstall                        Fetches cosmos to your user folder, and installs it for you! [EXPERIMENTAL]\n" +
+                                        "   --setup                                 It is a must-required command that must be used at post installation time.\n" +
                                         "\n" +
                               "Run Options is now in the CosmosBuildFile and add a `run profile` parameter to make it work. For more info, read the docs on the github page." +
                               "\n");
@@ -133,5 +162,12 @@ namespace cosmos {
             }
             Console.WriteLine(arr[arr.Length - 1] + ".");
         }
+
+        [DllImport("libc")] public static extern uint getuid();
+        
+        public static bool isRoot() {
+            return getuid() == 0;
+        }
     }
+
 }

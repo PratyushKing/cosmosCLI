@@ -28,7 +28,7 @@ namespace cosmos {
                 if (variable == "cosmosProjectFile") {
                     final.csprojectPath = varVal;
                 } else if (variable == "cliBuildVersion") {
-                    if (RUN.version != varVal) {
+                    if (varVal != RUN.version) {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("cosmos: The version of cosmosCLI installed on this machine (" + RUN.version + ") is not matching with what the project is made with/using (" + varVal + ")");
                         Console.ResetColor();

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace cosmos {
     public static class RUN {
 
-        public const string version = "v1.3";
+        public const string version = "v1.3.1";
         public static string buildFile = "CosmosBuildFile";
         public static CosmosProjectConfig current = new();
         public static bool success = true;

@@ -113,7 +113,7 @@ namespace cosmos {
                     case "-ri":
                         Console.WriteLine("WARNING: Please make sure that you have git, make, xorriso, yasm, dotnet and nuget properly installed before proceeding, or it will fail.\n Press Enter to continue.");
                         Console.ReadLine();
-                        var p = Process.Start("/bin/bash", "-c \"cd ~ && mkdir CosmosFiles && cd ~/CosmosFiles && git clone https://github.com/CosmosOS/Cosmos && cd ~/CosmosFiles/Cosmos && make && echo FINISHED\"");
+                        var p = Process.Start("/bin/bash", "-c \"cd ~ && mkdir CosmosFiles && cd ~/CosmosFiles && git clone https://github.com/CosmosOS/Cosmos --depth 1 && cd ~/CosmosFiles/Cosmos && make && echo FINISHED\"");
                         p.WaitForExit();
                         return;
                     default:

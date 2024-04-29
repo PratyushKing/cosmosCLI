@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "JtX3B6nc/Nskym+MA1dWl8vbNZPpBgovTlAGBk+oHOip+frb8D4uGDLL2hAIwwGZsxQXJcpy8z0SyHLGQ8G5Vg==",
+  "dgSpecHash": "WF6xoz0xuFiDVjb9gK28Mst0QGCUje8ZUdXHybPLxUtovIeZULY/a+9byNTGRCkYKvvYbK3Bs6+8TObvQpZLaA==",
   "success": true,
-  "projectFilePath": "/home/pratyush/Documents/cosmosCLI/cosmos.csproj",
+  "projectFilePath": "/home/pratyush/Cosmos Files/cosmosCLI/cosmos.csproj",
   "expectedPackageFiles": [
-    "/home/pratyush/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/7.0.15/microsoft.netcore.app.runtime.linux-x64.7.0.15.nupkg.sha512",
-    "/home/pratyush/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.15/microsoft.aspnetcore.app.ref.7.0.15.nupkg.sha512",
-    "/home/pratyush/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/7.0.15/microsoft.aspnetcore.app.runtime.linux-x64.7.0.15.nupkg.sha512",
-    "/home/pratyush/.nuget/packages/microsoft.netcore.app.host.linux-x64/7.0.15/microsoft.netcore.app.host.linux-x64.7.0.15.nupkg.sha512"
+    "/home/pratyush/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/7.0.18/microsoft.netcore.app.runtime.linux-x64.7.0.18.nupkg.sha512",
+    "/home/pratyush/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.18/microsoft.aspnetcore.app.ref.7.0.18.nupkg.sha512",
+    "/home/pratyush/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/7.0.18/microsoft.aspnetcore.app.runtime.linux-x64.7.0.18.nupkg.sha512",
+    "/home/pratyush/.nuget/packages/microsoft.netcore.app.host.linux-x64/7.0.18/microsoft.netcore.app.host.linux-x64.7.0.18.nupkg.sha512"
   ],
   "logs": []
 }

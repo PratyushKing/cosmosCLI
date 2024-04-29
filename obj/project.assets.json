@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/pratyush/Documents/cosmosCLI/cosmos.csproj",
+      "projectUniqueName": "/home/pratyush/Cosmos Files/cosmosCLI/cosmos.csproj",
       "projectName": "cosmos",
-      "projectPath": "/home/pratyush/Documents/cosmosCLI/cosmos.csproj",
+      "projectPath": "/home/pratyush/Cosmos Files/cosmosCLI/cosmos.csproj",
       "packagesPath": "/home/pratyush/.nuget/packages/",
-      "outputPath": "/home/pratyush/Documents/cosmosCLI/obj/",
+      "outputPath": "/home/pratyush/Cosmos Files/cosmosCLI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/pratyush/.nuget/NuGet/NuGet.Config"
@@ -59,19 +59,19 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.15, 7.0.15]"
+            "version": "[7.0.18, 7.0.18]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.linux-x64",
-            "version": "[7.0.15, 7.0.15]"
+            "version": "[7.0.18, 7.0.18]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.linux-x64",
-            "version": "[7.0.15, 7.0.15]"
+            "version": "[7.0.18, 7.0.18]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.linux-x64",
-            "version": "[7.0.15, 7.0.15]"
+            "version": "[7.0.18, 7.0.18]"
           }
         ],
         "frameworkReferences": {
@@ -79,7 +79,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.115/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.118/RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
